@@ -103,13 +103,13 @@ class NotesApp()
 
                 if (number == 0)
                 {
+                    viewingNotes = false;
                     return;
                 }
                 int index = number - 1;
                 if (0 <= index && index < notes.Count)
                 {
                     ViewNote(index);
-                    viewingNotes = false;
                     PromptAnyKey();
                 }
                 else
@@ -154,13 +154,13 @@ class NotesApp()
 
                 if (number == 0)
                 {
+                    viewingNotes = false;
                     return;
                 }
                 int index = number - 1;
                 if (0 <= index && index < notes.Count)
                 {
                     DeleteNote(index);
-                    viewingNotes = false;
                     PromptAnyKey();
                 }
                 else
