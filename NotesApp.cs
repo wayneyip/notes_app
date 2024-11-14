@@ -12,8 +12,8 @@
             Console.WriteLine("3. Delete Note");
             Console.WriteLine("4. Exit");
 
-            string userInput = Console.ReadLine();
-            switch (userInput)
+            string userInput = Console.ReadLine() ?? string.Empty;
+            switch (userInput.Trim())
             {
                 case "1":
                     Console.WriteLine("New Note");
