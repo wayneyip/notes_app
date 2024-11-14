@@ -59,6 +59,21 @@ class NotesApp()
         Note newNote = new Note(title, content);
         
         notes.Add(newNote);
+
+        Console.WriteLine("New note created!");
+        WriteEllipses(3);
+        ViewNote(notes.Count - 1);
+        WriteEllipses(3);
+        Console.WriteLine("Press any key to continue...");
+        Console.ReadKey();
+    }
+
+    private static void WriteEllipses(int rows)
+    {
+        for (int i = 0; i < rows; i++)
+        {
+            Console.WriteLine(".");
+        }
     }
 
     private static void ListNotesToView()
@@ -86,6 +101,7 @@ class NotesApp()
     private static void ViewNote(int index)
     {
         Console.WriteLine(notes[index].Title);
+        Console.WriteLine("-------------------");
         Console.WriteLine(notes[index].Content);
     }
 
