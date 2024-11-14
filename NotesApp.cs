@@ -28,10 +28,10 @@ class NotesApp()
                     CreateNote();
                     break;
                 case "2":
-                    ListNotesToView();
+                    ListNotesWithAction("View Notes", ViewNote);
                     break;
                 case "3":
-                    ListNotesToDelete();
+                    ListNotesWithAction("Delete Note", DeleteNote);
                     break;
                 case "0":
                     isAppRunning = false;
@@ -71,14 +71,14 @@ class NotesApp()
         IOUtils.PromptAnyKey();
     }
 
-    private static void ListNotesToView()
+    private static void ListNotesWithAction(string actionName, Action<int> action)
     {
         bool isSelectingNote = true;
 
         while (isSelectingNote)
         {
             Console.Clear();
-            Console.WriteLine("View Notes");
+            Console.WriteLine(actionName);
             Console.WriteLine("=====================");
 
             ListNotes();
@@ -98,7 +98,7 @@ class NotesApp()
                 int index = number - 1;
                 if (0 <= index && index < notes.Count)
                 {
-                    ViewNote(index);
+                    action(index);
                 }
                 else
                 {
@@ -120,48 +120,6 @@ class NotesApp()
         Console.WriteLine("-------------------");
         Console.WriteLine(notes[index].Content);
         IOUtils.WriteEllipses(3);
-    }
-
-    private static void ListNotesToDelete()
-    {
-        bool isSelectingNote = true;
-
-        while (isSelectingNote)
-        {
-            Console.Clear();
-            Console.WriteLine("Delete Note");
-            Console.WriteLine("=====================");
-
-            ListNotes();
-            Console.WriteLine("0 - [Back to Main Menu]");
-
-            string userInput = Console.ReadLine() ?? string.Empty;
-
-            try
-            {
-                int number = Int32.Parse(userInput);
-
-                if (number == 0)
-                {
-                    isSelectingNote = false;
-                    return;
-                }
-                int index = number - 1;
-                if (0 <= index && index < notes.Count)
-                {
-                    DeleteNote(index);
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input: no note found at number " + number);
-                }
-            }
-            catch
-            {
-                Console.WriteLine("Invalid input: please enter a number");
-            }
-            IOUtils.PromptAnyKey();
-        }
     }
 
     private static void ListNotes()
