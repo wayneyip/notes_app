@@ -38,7 +38,7 @@ class NotesApp()
                     break;
                 default:
                     Console.WriteLine("Invalid input: please enter the number for your option (1, 2, 3, or 0)");
-                    PromptAnyKey();
+                    IOUtils.PromptAnyKey();
                     break;
             }
         }
@@ -64,25 +64,11 @@ class NotesApp()
         
         notes.Add(newNote);
 
-        WriteEllipses(3);
+        IOUtils.WriteEllipses(3);
         Console.WriteLine("New note created!");
         ViewNote(notes.Count - 1);
 
-        PromptAnyKey();
-    }
-
-    private static void WriteEllipses(int rows)
-    {
-        for (int i = 0; i < rows; i++)
-        {
-            Console.WriteLine(".");
-        }
-    }
-
-    private static void PromptAnyKey()
-    {
-        Console.WriteLine("Press any key to continue...");
-        Console.ReadKey();
+        IOUtils.PromptAnyKey();
     }
 
     private static void ListNotesToView()
@@ -123,17 +109,17 @@ class NotesApp()
             {
                 Console.WriteLine("Invalid input: please enter a number");
             }
-            PromptAnyKey();
+            IOUtils.PromptAnyKey();
         }
     }
 
     private static void ViewNote(int index)
     {
-        WriteEllipses(3);
+        IOUtils.WriteEllipses(3);
         Console.WriteLine(notes[index].Title);
         Console.WriteLine("-------------------");
         Console.WriteLine(notes[index].Content);
-        WriteEllipses(3);
+        IOUtils.WriteEllipses(3);
     }
 
     private static void ListNotesToDelete()
@@ -174,7 +160,7 @@ class NotesApp()
             {
                 Console.WriteLine("Invalid input: please enter a number");
             }
-            PromptAnyKey();
+            IOUtils.PromptAnyKey();
         }
     }
 
