@@ -83,38 +83,46 @@ class NotesApp()
 
     private static void ListNotesToView()
     {
-        Console.Clear();
-        Console.WriteLine("View Notes");
-        Console.WriteLine("=====================");
+        bool viewingNotes = true;
 
-        ListNotes();
-        Console.WriteLine("0. [Back to Main Menu]");
-
-        string userInput = Console.ReadLine() ?? string.Empty;
-
-        try
+        while (viewingNotes)
         {
-            int number = Int32.Parse(userInput);
+            Console.Clear();
+            Console.WriteLine("View Notes");
+            Console.WriteLine("=====================");
 
-            if (number == 0)
+            ListNotes();
+            Console.WriteLine("0. [Back to Main Menu]");
+
+            string userInput = Console.ReadLine() ?? string.Empty;
+
+            try
             {
-                return;
+                int number = Int32.Parse(userInput);
+
+                if (number == 0)
+                {
+                    return;
+                }
+                int index = number - 1;
+                if (index < notes.Count)
+                {
+                    ViewNote(index);
+                    viewingNotes = false;
+                    PromptAnyKey();
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input");
+                    PromptAnyKey();
+                }
             }
-            int index = number - 1;
-            if (index < notes.Count)
+            catch (FormatException e)
             {
-                ViewNote(index);
-            }
-            else
-            {
-                Console.WriteLine("Invalid input");
+                Console.WriteLine(e.Message);
+                PromptAnyKey();
             }
         }
-        catch (FormatException e)
-        {
-            Console.WriteLine(e.Message);
-        }
-        PromptAnyKey();
     }
 
     private static void ViewNote(int index)
