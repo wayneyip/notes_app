@@ -100,6 +100,8 @@ class NotesApp()
         {
             ViewNote(selectedNoteIndex);
         }
+
+        PromptAnyKey();
     }
 
     private static void ViewNote(int index)
@@ -128,6 +130,8 @@ class NotesApp()
         {
             DeleteNote(selectedNoteIndex);
         }
+
+        PromptAnyKey();
     }
 
     private static int SelectFromNotes()
