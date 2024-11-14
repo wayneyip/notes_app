@@ -131,21 +131,35 @@ class NotesApp()
         Console.WriteLine("Delete Note");
         Console.WriteLine("=====================");
 
-        if (notes.Count == 0)
+        ListNotes();
+        Console.WriteLine("0. [Back to Main Menu]");
+
+        string userInput = Console.ReadLine() ?? string.Empty;
+
+        try
         {
-            Console.WriteLine("You have no notes.");
+            int number = Int32.Parse(userInput);
+
+            if (number == 0)
+            {
+                return;
+            }
+            int index = number - 1;
+            if (index < notes.Count)
+            {
+                DeleteNote(index);
+            }
+            else
+            {
+                Console.WriteLine("Invalid input");
+                PromptAnyKey();
+            }
+        }
+        catch (FormatException e)
+        {
+            Console.WriteLine(e.Message);
             PromptAnyKey();
-            return;
         }
-
-        int selectedNoteIndex = SelectFromNotes();
-
-        if (selectedNoteIndex >= 0)
-        {
-            DeleteNote(selectedNoteIndex);
-        }
-
-        PromptAnyKey();
     }
 
     private static void ListNotes()
