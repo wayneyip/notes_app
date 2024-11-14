@@ -30,7 +30,7 @@ class NotesApp()
                 case "3":
                     ListNotesToDelete();
                     break;
-                case "4":
+                case "0":
                     appRunning = false;
                     break;
                 default:
