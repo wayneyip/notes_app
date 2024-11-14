@@ -12,6 +12,9 @@ class NotesApp()
         {
             Console.Clear();
 
+            Console.WriteLine("Notes by Wayne Yip");
+            Console.WriteLine("Main Menu");
+            Console.WriteLine("=====================");
             Console.WriteLine("Please select an option:");
             Console.WriteLine("1. Create New Note");
             Console.WriteLine("2. View Notes");
