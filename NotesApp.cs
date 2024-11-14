@@ -53,7 +53,7 @@ class NotesApp()
 
         string title = Console.ReadLine() ?? string.Empty;
         
-        Console.WriteLine("Enter the content for your new note:");
+        Console.WriteLine("Now write something for your new note:");
 
         string content = Console.ReadLine() ?? string.Empty;
         
@@ -114,13 +114,13 @@ class NotesApp()
                 }
                 else
                 {
-                    Console.WriteLine("Invalid input");
+                    Console.WriteLine("Invalid input: no note found at number " + number);
                     PromptAnyKey();
                 }
             }
-            catch (FormatException e)
+            catch
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Invalid input: please enter a number");
                 PromptAnyKey();
             }
         }
@@ -167,13 +167,13 @@ class NotesApp()
                 }
                 else
                 {
-                    Console.WriteLine("Invalid input");
+                    Console.WriteLine("Invalid input: no note found at number " + number);
                     PromptAnyKey();
                 }
             }
-            catch (FormatException e)
+            catch
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Invalid input: please enter a number");
                 PromptAnyKey();
             }
         }
@@ -189,7 +189,7 @@ class NotesApp()
 
     private static void DeleteNote(int index)
     {
-        Console.WriteLine("Deleting note: " + notes[index].Title);
+        Console.WriteLine("Deleted note: " + notes[index].Title);
         notes.RemoveAt(index);
     }
 }
