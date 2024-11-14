@@ -23,10 +23,10 @@ class NotesApp()
                     CreateNote();
                     break;
                 case "2":
-                    ListNotes();
+                    ListNotesToView();
                     break;
                 case "3":
-                    Console.WriteLine("Delete Note");
+                    ListNotesToDelete();
                     break;
                 case "4":
                     appRunning = false;
@@ -55,7 +55,7 @@ class NotesApp()
         notes.Add(newNote);
     }
 
-    private static void ListNotes()
+    private static void ListNotesToView()
     {
         if (notes.Count > 0)
         {
@@ -72,7 +72,7 @@ class NotesApp()
                 int trueNumber = number - 1;
                 if (trueNumber < notes.Count)
                 {
-                    ReadNote(trueNumber);
+                    ViewNote(trueNumber);
                 }
             }
             catch (FormatException e)
@@ -82,9 +82,42 @@ class NotesApp()
         }
     }
 
-    private static void ReadNote(int index)
+    private static void ViewNote(int index)
     {
         Console.WriteLine(notes[index].Title);
         Console.WriteLine(notes[index].Content);
+    }
+
+    private static void ListNotesToDelete()
+    {
+        if (notes.Count > 0)
+        {
+            for (int i = 0; i < notes.Count; i++)
+            {
+                Console.WriteLine((i + 1) + ". " + notes[i].Title);
+            }
+
+            string userInput = Console.ReadLine() ?? string.Empty;
+
+            try
+            {
+                int number = Int32.Parse(userInput);
+                int trueNumber = number - 1;
+                if (trueNumber < notes.Count)
+                {
+                    DeleteNote(trueNumber);
+                }
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+    }
+
+    private static void DeleteNote(int index)
+    {
+        Console.WriteLine("Deleting note: " + notes[index].Title);
+        notes.RemoveAt(index);
     }
 }
