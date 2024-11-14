@@ -57,28 +57,11 @@ class NotesApp()
 
     private static void ListNotesToView()
     {
-        if (notes.Count > 0)
+        int selectedNoteIndex = SelectFromNotes();
+
+        if (selectedNoteIndex >= 0)
         {
-            for (int i=0; i < notes.Count; i++)
-            {
-                Console.WriteLine((i+1) + ". " + notes[i].Title);
-            }
-
-            string userInput = Console.ReadLine() ?? string.Empty;
-
-            try 
-            {
-                int number = Int32.Parse(userInput);
-                int trueNumber = number - 1;
-                if (trueNumber < notes.Count)
-                {
-                    ViewNote(trueNumber);
-                }
-            }
-            catch (FormatException e)
-            {
-                Console.WriteLine(e.Message);
-            }
+            ViewNote(selectedNoteIndex);
         }
     }
 
@@ -89,6 +72,16 @@ class NotesApp()
     }
 
     private static void ListNotesToDelete()
+    {
+        int selectedNoteIndex = SelectFromNotes();
+
+        if (selectedNoteIndex >= 0)
+        {
+            DeleteNote(selectedNoteIndex);
+        }
+    }
+
+    private static int SelectFromNotes()
     {
         if (notes.Count > 0)
         {
@@ -105,7 +98,7 @@ class NotesApp()
                 int trueNumber = number - 1;
                 if (trueNumber < notes.Count)
                 {
-                    DeleteNote(trueNumber);
+                    return trueNumber;
                 }
             }
             catch (FormatException e)
@@ -113,6 +106,8 @@ class NotesApp()
                 Console.WriteLine(e.Message);
             }
         }
+
+        return -1;
     }
 
     private static void DeleteNote(int index)
