@@ -63,6 +63,14 @@ class NotesApp()
     {
         Console.Clear();
 
+        if (notes.Count == 0)
+        {
+            Console.WriteLine("You have no notes.");
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+            return;
+        }
+
         int selectedNoteIndex = SelectFromNotes();
 
         if (selectedNoteIndex >= 0)
@@ -80,6 +88,14 @@ class NotesApp()
     private static void ListNotesToDelete()
     {
         Console.Clear();
+
+        if (notes.Count == 0)
+        {
+            Console.WriteLine("You have no notes.");
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+            return;
+        }
 
         int selectedNoteIndex = SelectFromNotes();
 
