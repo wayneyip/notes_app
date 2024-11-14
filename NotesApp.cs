@@ -170,35 +170,6 @@ class NotesApp()
         }
     }
 
-    private static int SelectFromNotes()
-    {
-        if (notes.Count > 0)
-        {
-            string userInput = Console.ReadLine() ?? string.Empty;
-
-            try
-            {
-                int number = Int32.Parse(userInput);
-
-                if (number == 0)
-                {
-                    return -1;
-                }
-                int trueNumber = number - 1;
-                if (trueNumber < notes.Count)
-                {
-                    return trueNumber;
-                }
-            }
-            catch (FormatException e)
-            {
-                Console.WriteLine(e.Message);
-            }
-        }
-
-        return -1;
-    }
-
     private static void DeleteNote(int index)
     {
         Console.WriteLine("Deleting note: " + notes[index].Title);
