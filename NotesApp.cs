@@ -113,19 +113,17 @@ class NotesApp()
                 if (0 <= index && index < notes.Count)
                 {
                     ViewNote(index);
-                    PromptAnyKey();
                 }
                 else
                 {
                     Console.WriteLine("Invalid input: no note found at number " + number);
-                    PromptAnyKey();
                 }
             }
             catch
             {
                 Console.WriteLine("Invalid input: please enter a number");
-                PromptAnyKey();
             }
+            PromptAnyKey();
         }
     }
 
@@ -166,19 +164,17 @@ class NotesApp()
                 if (0 <= index && index < notes.Count)
                 {
                     DeleteNote(index);
-                    PromptAnyKey();
                 }
                 else
                 {
                     Console.WriteLine("Invalid input: no note found at number " + number);
-                    PromptAnyKey();
                 }
             }
             catch
             {
                 Console.WriteLine("Invalid input: please enter a number");
-                PromptAnyKey();
             }
+            PromptAnyKey();
         }
     }
 
