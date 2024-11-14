@@ -16,6 +16,8 @@ public class NotesApp
         app.Run();
     }
 
+    // Main menu 
+    //
     public void Run()
     {
         bool isAppRunning = true;
@@ -61,9 +63,12 @@ public class NotesApp
     private void CreateNote()
     {
         Console.Clear();
+        
+        // Header
         Console.WriteLine("Create Note");
         Console.WriteLine("=====================");
 
+        // Input title and content
         Console.WriteLine("Enter the title for your new note:");
 
         string title = Console.ReadLine() ?? string.Empty;
@@ -72,8 +77,10 @@ public class NotesApp
 
         string content = Console.ReadLine() ?? string.Empty;
 
+        // Add note to data
         data.AddNote(title, content);
         
+        // Display finished note to user
         IOUtils.WriteEllipses(3);
         Console.WriteLine("New note created!");
         ViewNote(data.GetNotesCount() - 1);
@@ -81,6 +88,9 @@ public class NotesApp
         IOUtils.PromptAnyKey();
     }
 
+    // Lists all notes for the user to select and perform an action.
+    // Scalable for future actions, e.g. Edit Note.
+    //
     private void ListNotesWithAction(string actionName, Action<int> action)
     {
         bool isSelectingNote = true;
@@ -88,34 +98,41 @@ public class NotesApp
         while (isSelectingNote)
         {
             Console.Clear();
+
+            // Header
             Console.WriteLine(actionName);
             Console.WriteLine("=====================");
 
+            // List of note titles + Back function
             ListNoteTitles();
             Console.WriteLine("0 - [Back to Main Menu]");
 
+            // User input
             string userInput = Console.ReadLine() ?? string.Empty;
 
             try
             {
                 int number = Int32.Parse(userInput);
 
+                // 0 - back to main menu
                 if (number == 0)
                 {
                     isSelectingNote = false;
                     return;
                 }
+                // Get list index and perform action
+                // (Minus one because the user-facing list is 1-indexed)
                 int index = number - 1;
                 if (0 <= index && index < data.GetNotesCount())
                 {
                     action(index);
                 }
-                else
+                else // index out of bounds
                 {
                     Console.WriteLine("Invalid input: no note found at number " + number);
                 }
             }
-            catch
+            catch // user input is not an integer
             {
                 Console.WriteLine("Invalid input: please enter a number");
             }
