@@ -1,5 +1,9 @@
-﻿class NotesApp()
+﻿
+
+class NotesApp()
 {
+    private Note note = new Note();
+
     public static void Main(string[] args)
     {
         bool appRunning = true;
