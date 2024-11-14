@@ -61,10 +61,10 @@ class NotesApp()
         
         notes.Add(newNote);
 
+        WriteEllipses(3);
         Console.WriteLine("New note created!");
-        WriteEllipses(3);
         ViewNote(notes.Count - 1);
-        WriteEllipses(3);
+
         PromptAnyKey();
     }
 
@@ -128,9 +128,11 @@ class NotesApp()
 
     private static void ViewNote(int index)
     {
+        WriteEllipses(3);
         Console.WriteLine(notes[index].Title);
         Console.WriteLine("-------------------");
         Console.WriteLine(notes[index].Content);
+        WriteEllipses(3);
     }
 
     private static void ListNotesToDelete()
