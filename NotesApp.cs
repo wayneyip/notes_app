@@ -16,10 +16,10 @@ class NotesApp()
             Console.WriteLine("Main Menu");
             Console.WriteLine("=====================");
             Console.WriteLine("Please select an option:");
-            Console.WriteLine("1. Create New Note");
-            Console.WriteLine("2. View Notes");
-            Console.WriteLine("3. Delete Note");
-            Console.WriteLine("0. Exit");
+            Console.WriteLine("1 - Create New Note");
+            Console.WriteLine("2 - View Notes");
+            Console.WriteLine("3 - Delete Note");
+            Console.WriteLine("0 - Exit");
 
             string userInput = Console.ReadLine() ?? string.Empty;
             switch (userInput.Trim())
@@ -96,7 +96,7 @@ class NotesApp()
             Console.WriteLine("=====================");
 
             ListNotes();
-            Console.WriteLine("0. [Back to Main Menu]");
+            Console.WriteLine("0 - [Back to Main Menu]");
 
             string userInput = Console.ReadLine() ?? string.Empty;
 
@@ -149,7 +149,7 @@ class NotesApp()
             Console.WriteLine("=====================");
 
             ListNotes();
-            Console.WriteLine("0. [Back to Main Menu]");
+            Console.WriteLine("0 - [Back to Main Menu]");
 
             string userInput = Console.ReadLine() ?? string.Empty;
 
@@ -186,7 +186,7 @@ class NotesApp()
     {
         for (int i = 0; i < notes.Count; i++)
         {
-            Console.WriteLine((i + 1) + ". " + notes[i].Title);
+            Console.WriteLine((i + 1) + " - " + notes[i].Title);
         }
     }
 
