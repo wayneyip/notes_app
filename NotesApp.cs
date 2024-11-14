@@ -2,10 +2,19 @@
 
 class NotesApp()
 {
-    private static List<Note> notes = new List<Note>();
+    private NotesData data;
 
     public static void Main(string[] args)
     {
+        NotesApp app = new NotesApp();
+
+        app.Run();
+    }
+
+    public void Run()
+    {
+        data = new NotesData();
+
         bool isAppRunning = true;
 
         while (isAppRunning)
@@ -46,7 +55,7 @@ class NotesApp()
         Console.WriteLine("See you later!");
     }
 
-    private static void CreateNote()
+    private void CreateNote()
     {
         Console.Clear();
         Console.WriteLine("Create Note");
@@ -59,19 +68,17 @@ class NotesApp()
         Console.WriteLine("Now write something for your new note:");
 
         string content = Console.ReadLine() ?? string.Empty;
-        
-        Note newNote = new Note(title, content);
-        
-        notes.Add(newNote);
 
+        data.AddNote(title, content);
+        
         IOUtils.WriteEllipses(3);
         Console.WriteLine("New note created!");
-        ViewNote(notes.Count - 1);
+        ViewNote(data.GetNotesCount() - 1);
 
         IOUtils.PromptAnyKey();
     }
 
-    private static void ListNotesWithAction(string actionName, Action<int> action)
+    private void ListNotesWithAction(string actionName, Action<int> action)
     {
         bool isSelectingNote = true;
 
@@ -81,7 +88,7 @@ class NotesApp()
             Console.WriteLine(actionName);
             Console.WriteLine("=====================");
 
-            ListNotes();
+            ListNoteTitles();
             Console.WriteLine("0 - [Back to Main Menu]");
 
             string userInput = Console.ReadLine() ?? string.Empty;
@@ -96,7 +103,7 @@ class NotesApp()
                     return;
                 }
                 int index = number - 1;
-                if (0 <= index && index < notes.Count)
+                if (0 <= index && index < data.GetNotesCount())
                 {
                     action(index);
                 }
@@ -113,26 +120,28 @@ class NotesApp()
         }
     }
 
-    private static void ViewNote(int index)
+    private void ViewNote(int index)
     {
         IOUtils.WriteEllipses(3);
-        Console.WriteLine(notes[index].Title);
+        Console.WriteLine(data.GetTitleAt(index));
         Console.WriteLine("-------------------");
-        Console.WriteLine(notes[index].Content);
+        Console.WriteLine(data.GetContentAt(index));
         IOUtils.WriteEllipses(3);
     }
 
-    private static void ListNotes()
+    private void ListNoteTitles()
     {
-        for (int i = 0; i < notes.Count; i++)
+        List<string> titles = data.GetNoteTitles();
+
+        for (int i = 0; i < titles.Count; i++)
         {
-            Console.WriteLine((i + 1) + " - " + notes[i].Title);
+            Console.WriteLine((i + 1) + " - " + titles[i]);
         }
     }
 
-    private static void DeleteNote(int index)
+    private void DeleteNote(int index)
     {
-        Console.WriteLine("Deleted note: " + notes[index].Title);
-        notes.RemoveAt(index);
+        Console.WriteLine("Deleted note: " + data.GetTitleAt(index));
+        data.RemoveNoteAt(index);
     }
 }
