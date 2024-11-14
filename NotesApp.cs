@@ -64,8 +64,7 @@ class NotesApp()
         WriteEllipses(3);
         ViewNote(notes.Count - 1);
         WriteEllipses(3);
-        Console.WriteLine("Press any key to continue...");
-        Console.ReadKey();
+        PromptAnyKey();
     }
 
     private static void WriteEllipses(int rows)
@@ -74,6 +73,12 @@ class NotesApp()
         {
             Console.WriteLine(".");
         }
+    }
+
+    private static void PromptAnyKey()
+    {
+        Console.WriteLine("Press any key to continue...");
+        Console.ReadKey();
     }
 
     private static void ListNotesToView()
@@ -85,8 +90,7 @@ class NotesApp()
         if (notes.Count == 0)
         {
             Console.WriteLine("You have no notes.");
-            Console.WriteLine("Press any key to continue...");
-            Console.ReadKey();
+            PromptAnyKey();
             return;
         }
 
@@ -114,8 +118,7 @@ class NotesApp()
         if (notes.Count == 0)
         {
             Console.WriteLine("You have no notes.");
-            Console.WriteLine("Press any key to continue...");
-            Console.ReadKey();
+            PromptAnyKey();
             return;
         }
 
