@@ -4,14 +4,9 @@ public class NotesData
 {
     private List<Note> notes = new List<Note>();
 
-    public NotesData()
-	{
-
-	}
-
     public void AddNote(string title, string content)
     {
-        Note newNote = new Note(title, content);
+        Note newNote = new(title, content);
         notes.Add(newNote);
     }
 

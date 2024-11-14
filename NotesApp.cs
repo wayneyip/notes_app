@@ -1,20 +1,23 @@
 ﻿using System.Collections;
 
-class NotesApp()
+public class NotesApp
 {
     private NotesData data;
 
-    public static void Main(string[] args)
+    public NotesApp()
     {
-        NotesApp app = new NotesApp();
+        data = new NotesData();
+    }
+
+    public static void Main()
+    {
+        NotesApp app = new();
 
         app.Run();
     }
 
     public void Run()
     {
-        data = new NotesData();
-
         bool isAppRunning = true;
 
         while (isAppRunning)
