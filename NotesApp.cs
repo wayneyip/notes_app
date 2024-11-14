@@ -1,8 +1,8 @@
-﻿
+﻿using System.Collections;
 
 class NotesApp()
 {
-    private Note note = new Note();
+    private static List<Note> notes = new List<Note>();
 
     public static void Main(string[] args)
     {
@@ -20,10 +20,10 @@ class NotesApp()
             switch (userInput.Trim())
             {
                 case "1":
-                    Console.WriteLine("New Note");
+                    CreateNote();
                     break;
                 case "2":
-                    Console.WriteLine("View Notes");
+                    ListNotes();
                     break;
                 case "3":
                     Console.WriteLine("Delete Note");
@@ -38,5 +38,28 @@ class NotesApp()
         }
         
         Console.WriteLine("See you later!");
+    }
+
+    private static void CreateNote()
+    {
+        Console.WriteLine("Enter the title for your new note:");
+
+        string title = Console.ReadLine() ?? string.Empty;
+        
+        Console.WriteLine("Enter the content for your new note:");
+
+        string content = Console.ReadLine() ?? string.Empty;
+        
+        Note newNote = new Note(title, content);
+        
+        notes.Add(newNote);
+    }
+
+    private static void ListNotes()
+    {
+        foreach (Note note in notes)
+        {
+            Console.WriteLine(note.Title);
+        }
     }
 }
