@@ -16,7 +16,7 @@ class NotesApp()
             Console.WriteLine("1. Create New Note");
             Console.WriteLine("2. View Notes");
             Console.WriteLine("3. Delete Note");
-            Console.WriteLine("4. Exit");
+            Console.WriteLine("0. Exit");
 
             string userInput = Console.ReadLine() ?? string.Empty;
             switch (userInput.Trim())
@@ -34,7 +34,8 @@ class NotesApp()
                     appRunning = false;
                     break;
                 default:
-                    Console.WriteLine("Invalid choice - please enter the number for your option (1, 2, or 3)");
+                    Console.WriteLine("Invalid input: please enter the number for your option (1, 2, 3, or 0)");
+                    PromptAnyKey();
                     break;
             }
         }
