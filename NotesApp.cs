@@ -6,9 +6,9 @@ class NotesApp()
 
     public static void Main(string[] args)
     {
-        bool appRunning = true;
+        bool isAppRunning = true;
 
-        while (appRunning)
+        while (isAppRunning)
         {
             Console.Clear();
 
@@ -34,7 +34,7 @@ class NotesApp()
                     ListNotesToDelete();
                     break;
                 case "0":
-                    appRunning = false;
+                    isAppRunning = false;
                     break;
                 default:
                     Console.WriteLine("Invalid input: please enter the number for your option (1, 2, 3, or 0)");
@@ -87,9 +87,9 @@ class NotesApp()
 
     private static void ListNotesToView()
     {
-        bool viewingNotes = true;
+        bool isSelectingNote = true;
 
-        while (viewingNotes)
+        while (isSelectingNote)
         {
             Console.Clear();
             Console.WriteLine("View Notes");
@@ -106,7 +106,7 @@ class NotesApp()
 
                 if (number == 0)
                 {
-                    viewingNotes = false;
+                    isSelectingNote = false;
                     return;
                 }
                 int index = number - 1;
@@ -140,9 +140,9 @@ class NotesApp()
 
     private static void ListNotesToDelete()
     {
-        bool viewingNotes = true;
+        bool isSelectingNote = true;
 
-        while (viewingNotes)
+        while (isSelectingNote)
         {
             Console.Clear();
             Console.WriteLine("Delete Note");
@@ -159,7 +159,7 @@ class NotesApp()
 
                 if (number == 0)
                 {
-                    viewingNotes = false;
+                    isSelectingNote = false;
                     return;
                 }
                 int index = number - 1;
