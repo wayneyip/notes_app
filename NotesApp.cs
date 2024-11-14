@@ -87,21 +87,35 @@ class NotesApp()
         Console.WriteLine("View Notes");
         Console.WriteLine("=====================");
 
-        if (notes.Count == 0)
+        ListNotes();
+        Console.WriteLine("0. [Back to Main Menu]");
+
+        string userInput = Console.ReadLine() ?? string.Empty;
+
+        try
         {
-            Console.WriteLine("You have no notes.");
+            int number = Int32.Parse(userInput);
+
+            if (number == 0)
+            {
+                return;
+            }
+            int index = number - 1;
+            if (index < notes.Count)
+            {
+                ViewNote(index);
+            }
+            else
+            {
+                Console.WriteLine("Invalid input");
+                PromptAnyKey();
+            }
+        }
+        catch (FormatException e)
+        {
+            Console.WriteLine(e.Message);
             PromptAnyKey();
-            return;
         }
-
-        int selectedNoteIndex = SelectFromNotes();
-
-        if (selectedNoteIndex >= 0)
-        {
-            ViewNote(selectedNoteIndex);
-        }
-
-        PromptAnyKey();
     }
 
     private static void ViewNote(int index)
@@ -134,20 +148,28 @@ class NotesApp()
         PromptAnyKey();
     }
 
+    private static void ListNotes()
+    {
+        for (int i = 0; i < notes.Count; i++)
+        {
+            Console.WriteLine((i + 1) + ". " + notes[i].Title);
+        }
+    }
+
     private static int SelectFromNotes()
     {
         if (notes.Count > 0)
         {
-            for (int i = 0; i < notes.Count; i++)
-            {
-                Console.WriteLine((i + 1) + ". " + notes[i].Title);
-            }
-
             string userInput = Console.ReadLine() ?? string.Empty;
 
             try
             {
                 int number = Int32.Parse(userInput);
+
+                if (number == 0)
+                {
+                    return -1;
+                }
                 int trueNumber = number - 1;
                 if (trueNumber < notes.Count)
                 {
