@@ -45,6 +45,8 @@ class NotesApp()
     private static void CreateNote()
     {
         Console.Clear();
+        Console.WriteLine("Create Note");
+        Console.WriteLine("=====================");
 
         Console.WriteLine("Enter the title for your new note:");
 
@@ -62,6 +64,8 @@ class NotesApp()
     private static void ListNotesToView()
     {
         Console.Clear();
+        Console.WriteLine("View Notes");
+        Console.WriteLine("=====================");
 
         if (notes.Count == 0)
         {
@@ -88,6 +92,8 @@ class NotesApp()
     private static void ListNotesToDelete()
     {
         Console.Clear();
+        Console.WriteLine("Delete Note");
+        Console.WriteLine("=====================");
 
         if (notes.Count == 0)
         {
