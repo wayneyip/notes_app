@@ -10,6 +10,8 @@ class NotesApp()
 
         while (appRunning)
         {
+            Console.Clear();
+
             Console.WriteLine("Please select an option:");
             Console.WriteLine("1. Create New Note");
             Console.WriteLine("2. View Notes");
@@ -42,6 +44,8 @@ class NotesApp()
 
     private static void CreateNote()
     {
+        Console.Clear();
+
         Console.WriteLine("Enter the title for your new note:");
 
         string title = Console.ReadLine() ?? string.Empty;
@@ -57,6 +61,8 @@ class NotesApp()
 
     private static void ListNotesToView()
     {
+        Console.Clear();
+
         int selectedNoteIndex = SelectFromNotes();
 
         if (selectedNoteIndex >= 0)
@@ -73,6 +79,8 @@ class NotesApp()
 
     private static void ListNotesToDelete()
     {
+        Console.Clear();
+
         int selectedNoteIndex = SelectFromNotes();
 
         if (selectedNoteIndex >= 0)
