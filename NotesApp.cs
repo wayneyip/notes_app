@@ -105,7 +105,7 @@ class NotesApp()
                     return;
                 }
                 int index = number - 1;
-                if (index < notes.Count)
+                if (0 <= index && index < notes.Count)
                 {
                     ViewNote(index);
                     viewingNotes = false;
@@ -156,7 +156,7 @@ class NotesApp()
                     return;
                 }
                 int index = number - 1;
-                if (index < notes.Count)
+                if (0 <= index && index < notes.Count)
                 {
                     DeleteNote(index);
                     viewingNotes = false;
