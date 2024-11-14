@@ -57,9 +57,34 @@ class NotesApp()
 
     private static void ListNotes()
     {
-        foreach (Note note in notes)
+        if (notes.Count > 0)
         {
-            Console.WriteLine(note.Title);
+            for (int i=0; i < notes.Count; i++)
+            {
+                Console.WriteLine((i+1) + ". " + notes[i].Title);
+            }
+
+            string userInput = Console.ReadLine() ?? string.Empty;
+
+            try 
+            {
+                int number = Int32.Parse(userInput);
+                int trueNumber = number - 1;
+                if (trueNumber < notes.Count)
+                {
+                    ReadNote(trueNumber);
+                }
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
+    }
+
+    private static void ReadNote(int index)
+    {
+        Console.WriteLine(notes[index].Title);
+        Console.WriteLine(notes[index].Content);
     }
 }
