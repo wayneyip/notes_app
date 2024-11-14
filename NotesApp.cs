@@ -108,14 +108,13 @@ class NotesApp()
             else
             {
                 Console.WriteLine("Invalid input");
-                PromptAnyKey();
             }
         }
         catch (FormatException e)
         {
             Console.WriteLine(e.Message);
-            PromptAnyKey();
         }
+        PromptAnyKey();
     }
 
     private static void ViewNote(int index)
@@ -152,14 +151,13 @@ class NotesApp()
             else
             {
                 Console.WriteLine("Invalid input");
-                PromptAnyKey();
             }
         }
         catch (FormatException e)
         {
             Console.WriteLine(e.Message);
-            PromptAnyKey();
         }
+        PromptAnyKey();
     }
 
     private static void ListNotes()
