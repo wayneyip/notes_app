@@ -41,7 +41,18 @@ https://github.com/user-attachments/assets/6ea57ab5-e362-4651-81fc-48f937415af1
 3. Enter `dotnet run` to run the application.
 4. Enjoy!
 
-## Development Notes
+## Testing
+ I accounted for the following test cases at each stage of the application:
+ 
+**Main Menu**
+- Rejects any input outside of the listed index numbers
+    
+**View Notes / Delete Note**:
+- Rejects negative numbers
+- Rejects numbers higher than the existing number of notes
+- Rejects non-numerical strings
+
+## Additional Dev Notes
 
 **Separation of Concerns**:
 - I decoupled the logic of frontend and backend for cleanliness, making it easier to scale the app later with a full graphical interface or more complex functionality.
