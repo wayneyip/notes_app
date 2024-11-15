@@ -4,8 +4,31 @@
 
 **Technologies**: C#, .NET
 
-## Project Description
+## Description
 
+A note-taking application on the command line. Write something!
+
+![image](https://github.com/user-attachments/assets/baacbb60-f663-4a8b-96d6-27770d230610)
+
+## Features
+
+**Create Note**
+
+Create a note with a title and some content.
+
+https://github.com/user-attachments/assets/23b7a940-21b5-4db1-97f3-cbef2ae5bca5
+
+**View Notes**
+
+Select and view a note from your list of notes. 
+
+https://github.com/user-attachments/assets/9d0291e1-151a-4124-8a30-ab6be224c0ce
+
+**Delete Note**
+
+Select and delete a note from your list of notes. 
+
+https://github.com/user-attachments/assets/6ea57ab5-e362-4651-81fc-48f937415af1
 
 ## Setup Instructions
 
