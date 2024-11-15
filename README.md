@@ -7,9 +7,16 @@
 ## Project Description
 
 
-## Instructions
+## Setup Instructions
 
+**Requirements**
+- This application requires [.NET 8.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0), the latest .NET SDK on Long Term Support.
 
+**Steps**
+1. Clone this repository to your machine.
+2. In a terminal, navigate to the location of your cloned repository.
+3. Enter `dotnet run` to run the application.
+4. Enjoy!
 
 ## Development Notes
 
