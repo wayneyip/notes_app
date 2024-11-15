@@ -10,6 +10,17 @@ A note-taking application on the command line. Write something!
 
 ![image](https://github.com/user-attachments/assets/baacbb60-f663-4a8b-96d6-27770d230610)
 
+## Setup Instructions
+
+**Requirements**
+- This application requires [.NET 8.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0), the latest .NET SDK on Long Term Support.
+
+**Steps**
+1. Clone this repository to your machine.
+2. In a terminal, navigate to the location of your cloned repository.
+3. Enter `dotnet run` to run the application.
+4. Enjoy!
+
 ## Features
 
 **Create Note**
@@ -29,17 +40,6 @@ https://github.com/user-attachments/assets/9d0291e1-151a-4124-8a30-ab6be224c0ce
 Select and delete a note from your list of notes. 
 
 https://github.com/user-attachments/assets/6ea57ab5-e362-4651-81fc-48f937415af1
-
-## Setup Instructions
-
-**Requirements**
-- This application requires [.NET 8.0 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0), the latest .NET SDK on Long Term Support.
-
-**Steps**
-1. Clone this repository to your machine.
-2. In a terminal, navigate to the location of your cloned repository.
-3. Enter `dotnet run` to run the application.
-4. Enjoy!
 
 ## Testing
  I accounted for the following test cases at each stage of the application:
